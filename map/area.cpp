@@ -84,10 +84,15 @@ void func(Mat image, int num) {
 	//Labeling
 	point temp_p;
 	int index = 0;
+	int count[9];
+	int rank[9];
+
+	for (int i = 0 ; i )
+
 	for (int y = 2; y < height-2; y++) {
 		for (int x = 2; x < width-2; x++) {
 
-			int num = 0;
+			int num = 0;1
 			uchar b = image2.at<Vec3b>(y, x)[0];
 			uchar b_xp = image2.at<Vec3b>(y, x+1)[0];
 			uchar b_xm = image2.at<Vec3b>(y, x-1)[0];
@@ -114,42 +119,59 @@ void func(Mat image, int num) {
 				while (!s.empty()){
 					temp_p = s.top();
 					s.pop();
-					count++;
-					switch (index)
-					{
-					case 1:
-						block1.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 2:
-						block2.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 3:
-						block3.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 4:
-						block4.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 5:
-						block5.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 6:
-						block6.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 7:
-						block7.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 8:
-						block8.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					case 9:
-						block9.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
-						break;
-					}
+					count[index]++;
 					image2.at<Vec3b>(temp_p.y, temp_p.x)[0] = 0;
 					labeling(image2, temp_p.x, temp_p.y);
 				}
 				printf("\nindex %d, %d", index, count);
 			}
+		}
+	}
+
+
+	for (int i = 0; i < 9; i++)
+	{
+		int cnt = 0;
+		for (int j = 0; j < 9; j++)
+		{
+			if (count[i] > count[j])
+				cnt++;
+
+		}
+		rank[i] = cnt + 1;
+	}
+
+	for (int i = 0; i < 9; i++)
+	{
+		switch (rank[i])
+		{
+		case 1:
+			block1.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 2:
+			block2.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 3:
+			block3.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 4:
+			block4.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 5:
+			block5.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 6:
+			block6.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 7:
+			block7.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 8:
+			block8.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
+		case 9:
+			block9.at<Vec3b>(temp_p.y, temp_p.x)[0] = 255;
+			break;
 		}
 	}
 	imwrite("C:\\input\\block01.jpg", block1);
