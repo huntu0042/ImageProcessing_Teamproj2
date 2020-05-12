@@ -10,8 +10,9 @@
 
 
 **1. Rendering in Random Location**
+ 
+- 크롤링 한 창고 이미지 셋에서, 글자 및 위치와 각도를 Random 하게 plate를 렌더링<br>
 
-- 크롤링 한 창고 이미지 셋에서, 글자 및 위치와 각도를 Random 하게 plate를 렌더링 
 <img src = "https://user-images.githubusercontent.com/25008566/81750546-8e1a1000-9462-11ea-9465-13e1b6108dd0.jpg" width="300"/> <img src = "https://user-images.githubusercontent.com/25008566/81750263-03391580-9462-11ea-9468-28d44de364fe.png" width="300"/>
 
 
