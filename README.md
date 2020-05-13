@@ -37,10 +37,14 @@
 #### 1. Rendering in Random Location <br><br>
 
   - Dependencies
-    - opencv / sophus / eigen3
+    > opencv / sophus / eigen3
 
   - prepare background data
-    > put in ./background folder
+    > put in `./background` folder
+    
+    
+  - set variable in source code
+   - 
 
 
 
